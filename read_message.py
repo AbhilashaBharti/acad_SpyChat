@@ -33,30 +33,29 @@ def read_message():
 
         new = (secret_message.upper()).split()
 
-        # controlling the words spoken by spy in every message received.
+        
         friends[sender].count += len(words)
 
-        # if Emergency words present\
+        
         if "SOS" in new or "SAVE" in new or "HELP" in new or "ACCIDENT" in new or "ALERT" in new:
 
-            # Emergency alert
-            # Termcolor and Colorama both libraries happily used.
+            
             print (colored("!", 'grey', 'on_yellow')),
             print (colored("!", 'grey', 'on_yellow')),
             print (colored("!", 'grey', 'on_yellow'))
 
-            # help friend by sending a helping message
+            
             print (colored("The friend who sent this message need your help.", 'cyan'))
             print (colored("You can help your friend by sending helping message.", 'cyan'))
             print (colored("Select the friend to send helping message", 'red'))
 
-        # calling the send message help function
+        
         send_message_help()
 
-        # the message has been sent successfully
+        
         print (colored("You just sent a message to help your friend.", 'magenta'))
 
-        # add the chat to sender
+       
         new_chat = ChatMessage(secret_message, False)
         friends[sender].chats.append(new_chat)
         print (colored("Your secret message has been saved.", 'cyan'))
